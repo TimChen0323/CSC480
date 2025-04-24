@@ -89,6 +89,8 @@ def DFS(world: WorldState, columnLimit, rowLimit):
                         newSolution.append("V")
                     visited.add(worldTuple)
                     stack.append(WorldState(newWorld, newColumn, newRow, newSolution))
+    print("no valid solution")
+    sys.exit()
 
 # function to do the actual BFS, takes in a world state and the size of the world
 def BFS(world: WorldState, columnLimit, rowLimit):
@@ -135,6 +137,8 @@ def BFS(world: WorldState, columnLimit, rowLimit):
                         newSolution.append("V")
                     visited.add(worldTuple)
                     q.append(WorldState(newWorld, newColumn, newRow, newSolution))
+    print("no valid solution")
+    sys.exit()
 
 # TODO : MAKE THIS WORK WITH ANY FILE NAME
 if __name__ == '__main__':
