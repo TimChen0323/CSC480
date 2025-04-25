@@ -27,13 +27,6 @@ def isValid(x, y, worldx, worldy):
     # if the potential move is bigger than the world or less than zero, illegal
     return 0 <= x < worldx and 0 <= y < worldy
 
-# Function to print the board, takes in a worldstate
-# !!!!!!!!! DELETE LATER PLEASE SEE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!
-def printWorld(world: WorldState):
-    for row in world.world:
-        print(' '.join(map(str, row)))
-    print("--------")
-
 # function to check if the solution has been reached so we can terminate, takes in a list of lists
 def isSolution(world):
     for inner_list in world:
@@ -60,7 +53,6 @@ def DFS(world: WorldState, columnLimit, rowLimit):
     while stack:
         curr = stack.pop()
         numberExpanded = numberExpanded + 1
-        printWorld(curr)
 
         if isSolution(curr.world):
             return curr.solution, numberGenerated, numberExpanded
@@ -108,7 +100,6 @@ def BFS(world: WorldState, columnLimit, rowLimit):
     while q:
         curr = q.popleft()
         numberExpanded = numberExpanded + 1
-        printWorld(curr)
 
         if isSolution(curr.world):
             return curr.solution, numberGenerated, numberExpanded
@@ -140,7 +131,7 @@ def BFS(world: WorldState, columnLimit, rowLimit):
     print("no valid solution")
     sys.exit()
 
-# TODO : MAKE THIS WORK WITH ANY FILE NAME
+
 if __name__ == '__main__':
     if len(sys.argv) == 3:
         algorithm = sys.argv[1]
